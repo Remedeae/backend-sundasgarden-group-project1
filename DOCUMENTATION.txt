@@ -1,0 +1,12 @@
+AI usage:
+-Used figmas AI to create the design and layout of the page.
+    Worked all right, but the limited credits gave you one swap (and it missunderstood the instructions, so taht was wasted).
+    so I couldn't really work with the design as I wanted to.
+
+
+Thoughts Maya 9/10: Gotta check how to import pure multiple functions on one board, put everything inside one large function?
+Nesting?
+Should we have multipletags added to the task or just a single one? ->with single the component taskTag
+becomes reduntant.
+Should we use fontawsome by importing it via script or installing it via node for icons?
+
