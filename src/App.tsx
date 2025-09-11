@@ -5,8 +5,7 @@ import catPlaceholder from './assets/cat-placeholder.jfif'
 
 import type { tasksType } from './interfaces/taskType.ts'
 
-function App() { //Note that this code doesn't mount right now due to undefined variables
-
+function App() {
   const initialTasks: tasksType[] = [];
   const emptyTask: tasksType = {
     task: "",
