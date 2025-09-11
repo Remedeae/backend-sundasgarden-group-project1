@@ -2,6 +2,9 @@ AI usage:
 -Used figmas AI to create the design and layout of the page.
     Worked all right, but the limited credits gave you one swap (and it missunderstood the instructions, so taht was wasted).
     so I couldn't really work with the design as I wanted to.
+- Used AI (chatGPT) to check for typos
+- Used AI to ask ask questions when I get stuck on something that doesn't work.
+    (Eg why my html code wasn't rendering -> hidden throw due to undefined variables)
 
 
 Thoughts Maya 9/10: Gotta check how to import pure multiple functions on one board, put everything inside one large function?
