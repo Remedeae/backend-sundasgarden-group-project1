@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import TaskItem from './components/taskItem.tsx'
-import TaskTag from './components/taskTag.tsx'
-import WeatherItem from './components/weatherItem.tsx'
+import UlItem from './components/UlItem.tsx'
 
 import catPlaceholder from './assets/cat-placeholder.jfif'
 
@@ -9,18 +7,17 @@ import type { tasksType } from './interfaces/taskType.ts'
 
 function App() { //Note that this code doesn't mount right now due to undefined variables
 
-
-
   const initialTasks: tasksType[] = [];
   const emptyTask: tasksType = {
-    titel: "",
+    task: "",
     description: "",
     tags: "",
   }
   const [tasks, setTasks] = useState<tasksType[]>(initialTasks);
   const [newTask, setNewTask] = useState<tasksType>(emptyTask);
+  const [completedTasks, setCompletedTasks] = useState<tasksType[]>(initialTasks);
 
-  const handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>, field : keyof tasksType) => {
+  const handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof tasksType) => {
     setNewTask({
       ...newTask,
       [field]: e.target.value
@@ -48,34 +45,24 @@ function App() { //Note that this code doesn't mount right now due to undefined 
 
         </div>
       </div>
-      <div className="toDo">
-        <h2> <i></i>Active Tasks {/* activeTaskCount */}</h2>
-        <ul className='toDo__list'>
-          {tasks.map((task, index) => (
-            <li key={index}>
-              <TaskItem titel={task} description='' tags='' />
-            </li>
-          ))}
-        </ul>
+      <div className="toDo">  
+        <UlItem className="toDo__list" TaskItemType={tasks} title='Active Tasks' iconClassName='' />
       </div>
       <div className="taskManagment">
         <div className="addTask">
           <h2><i></i>Add New Task</h2>
           <div className='addTask__input'>
             <label htmlFor="newTask">Task</label>
-            <input type="text" id="newTask" placeholder='Enter task...' value={newTask.titel} onChange={(e=>handleTaskChange(e, "titel"))} />
+            <input type="text" id="newTask" placeholder='Enter task...' value={newTask.task} onChange={(e => handleTaskChange(e, "task"))} />
             <label htmlFor="taskDescription">Description</label>
-            <input type="text" id="taskDescription" placeholder='Enter task description...' value={newTask.description} onChange={(e)=>handleTaskChange(e, "description")} />
+            <input type="text" id="taskDescription" placeholder='Enter task description...' value={newTask.description} onChange={(e) => handleTaskChange(e, "description")} />
             <label htmlFor="taskTag">Tags</label>
             <input type="checkbox" id='taskTag' />
             <button onClick={handleAddTask}>Add task</button>
           </div>
         </div>
         <div className="completedTasks">
-          <h2><i></i>Completed Tasks {/* completedTaskCount */}</h2>
-          <div className='completedTasks__list'>
-
-          </div>
+          <UlItem className='completedTasks__list' TaskItemType={completedTasks} title='Completed Tasks' iconClassName=''/>
         </div>
       </div>
 
