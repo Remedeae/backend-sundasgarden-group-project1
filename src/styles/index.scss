@@ -1,1 +1,9 @@
-@import 'reset';
+@use 'reset';
+@use 'config';
+@use 'variables';
+@use 'global';
+@use 'weather';
+@use 'catPic';
+@use 'toDoList';
+@use 'completedTasks';
+@use 'addTask';
