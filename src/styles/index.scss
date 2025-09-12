@@ -1,32 +1,9 @@
-@import 'reset';
-@import 'variables';
-
-* {
-    font-family: $font-main;
-    font-weight: 400;
-    color: $color-mid;
-    line-height: 1.2rem;
-}
-.app {
-    display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr 1fr;
-    width: 97%;
-    height: 94%;
-      & > * {
-        border: solid $color-light 0.6rem;
-  }
-}
-p {
-    font-size: 0.9rem;
-}
-
-h2 {
-    color: $color-dark;
-    font-size: 1rem;
-}
-
-@import 'weather';
-@import 'catPics';
-@import 'toDoList';
-@import 'completedTasks';
-@import 'addTask';
+@use 'reset';
+@use 'config';
+@use 'variables';
+@use 'global';
+@use 'weather';
+@use 'catPic';
+@use 'toDoList';
+@use 'completedTasks';
+@use 'addTask';
