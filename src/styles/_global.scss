@@ -1,27 +1,62 @@
 @use 'config' as *;
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 * {
     font-family: $font-main;
     font-weight: 400;
     color: $color-mid;
-    line-height: 1.2rem;
+    line-height: $line-hight;
 }
+
 .app {
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr 1fr;
-    width: 97%;
-    height: 94%;
-      & > * {
-        border: solid $color-light 0.6rem;
-  }
+    grid-template: 1fr 1fr / 1fr 1.4fr 1fr;
+    width: 97vw;
+    height: 94vh;
+
+    &>*,
+    li {
+        border: solid $color-light 0.1rem;
+        border-radius: 1rem;
+        margin: 2%;
+        padding: 3%;
+    }
+
+    & li {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 2.5%;
+        margin: 0;
+        margin-bottom: 2%;
+
+        & p {
+            max-width: 98%;
+        }
+    }
 }
-p {
+
+p,
+label,
+::placeholder {
     font-size: 0.9rem;
 }
 
-h2 {
+h2,
+h3,
+h1 {
     color: $color-dark;
     font-size: 1rem;
+    padding: 1% 0;
 }
-h3{
-    color: aliceblue
+
+i {
+    color: $color-dark;
+    padding: 2%;
+    font-size: 1.2rem;
 }

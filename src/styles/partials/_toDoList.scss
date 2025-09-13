@@ -1,0 +1,22 @@
+@use '../variables' as *;
+
+.toDo {
+    grid-area: 1/2/3/3;
+
+    & .fa-clock {
+        color: $color-blue;
+    }
+
+    & .task__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        & i {
+            padding: 15% 0 15% 15%;
+            font-size: 0.9rem;
+        }
+    }
+
+}

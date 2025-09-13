@@ -7,9 +7,14 @@ AI usage:
     (Eg why my html code wasn't rendering -> hidden throw due to undefined variables)
 
 
-Thoughts Maya 9/10: Gotta check how to import pure multiple functions on one board, put everything inside one large function?
+
+Maya 12/9:
+Something is up with prepros, so I swapped over to live sass compiler (extention).
+
+Thoughts Maya 10/9:
+Gotta check how to import pure multiple functions on one board, put everything inside one large function?
 Nesting?
 Should we have multipletags added to the task or just a single one? ->with single the component taskTag
 becomes reduntant.
-Should we use fontawsome by importing it via script or installing it via node for icons?
+Should we use fontawsome by importing it via script or installing it via node for icons? - script(12/9)
 

@@ -2,8 +2,8 @@
 @use 'config';
 @use 'variables';
 @use 'global';
-@use 'weather';
-@use 'catPic';
-@use 'toDoList';
-@use 'completedTasks';
-@use 'addTask';
+@use './partials/weather';
+@use './partials/catPic';
+@use './partials/toDoList';
+@use './partials/addTask';
+@use './partials/completedTasks';

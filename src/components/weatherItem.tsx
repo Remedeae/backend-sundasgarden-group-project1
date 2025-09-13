@@ -1,12 +1,16 @@
+import type { WeatherItemType } from "../interfaces/weatherType"
 
-
-function WeatherItem() {
-    <div className="weather__details-item">
-        <i className={weatherItemIcon}></i>
-        <div>
-            <p>{props.weatherItemTitel}</p>
-            <p>{props.weatherItemInfo}</p>
+function WeatherItem(props: WeatherItemType) {
+    let styleColor={color: props.color};
+    return (
+        <div className="weather__details-item">
+            <i className={props.icon} style={styleColor}></i>
+            <div>
+                <p>{props.titel}</p>
+                <h6>{props.info}</h6>
+            </div>
         </div>
-    </div>
+    )
 }
+
 export default WeatherItem

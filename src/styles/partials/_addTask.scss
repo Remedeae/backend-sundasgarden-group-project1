@@ -1,0 +1,44 @@
+@use '../variables' as *;
+
+.addTask {
+    display: flex;
+    flex-direction: column;
+
+    & * {
+        margin: 1%;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        min-height: 90%;
+    }
+    & label {
+        color: $color-dark;
+    }
+    & input {
+        padding: 1%;
+        border-radius: 0.3rem;
+        border: solid $color-mid 0.1rem;
+        background-color: $color-light;
+    }
+
+    & i {
+        color: $color-green-mid;
+    }
+
+    & button {
+        margin: auto;
+        padding: 3%;
+        width: 84%;
+        border: none;
+        border-radius: 1rem;
+        color: white;
+        background-color: $color-dark;
+
+        & i {
+            color: white;
+        }
+    }
+
+}
