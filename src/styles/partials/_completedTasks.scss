@@ -1,0 +1,28 @@
+@use '../variables' as *;
+
+.completedTasks {
+   grid-area: 2/3/3/4;
+
+   & .fa-circle-check {
+      color: $color-green-mid;
+   }
+
+   & p {
+      text-decoration: line-through;
+   }
+
+   & .task__info {
+      width: 95%;
+   }
+   & li {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: start;
+      background-color: $color-green-light;
+         & i {
+      padding: 0.2rem;
+   }
+   }
+
+}
