@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import UlItem from './components/UlItem.tsx'
-import WeatherItem from './components/WeatherItem.tsx'
+import WeatherItem from './components/weatherItem.tsx'
 
 import catPlaceholder from './assets/cat-placeholder.jfif' //placeholder for API data
 
 import type { tasksType } from './interfaces/taskType.ts'
-import type { WeatherItemType } from './interfaces/weatherType.ts'
+//import type { WeatherItemType } from './interfaces/weatherType.ts'
 
 function App() {
 
