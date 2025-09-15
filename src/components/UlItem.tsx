@@ -1,11 +1,7 @@
-import type { handleTaskIcons, tasksType } from "../interfaces/taskType";
 import TaskItem from "./taskItem.tsx";
-type PropsUlType = {
-  TaskItemType: tasksType[],
-  className: string,
-  title: string,
-  iconClassName: string,
-}
+
+import type { handleTaskIcons, PropsUlType } from "../interfaces/taskType";
+
 
 function ulItem(props: PropsUlType & handleTaskIcons) {
   return (
@@ -18,7 +14,7 @@ function ulItem(props: PropsUlType & handleTaskIcons) {
             <TaskItem task={t.task} description={t.description} tags={t.tags} />
             <div className="task__action">
               <i className={props.completeIcon}></i>
-              <i className={props.trashIcon}></i>
+              <i className={props.trashIcon} onClick={() => props.handleDelete(index)}></i>
             </div>
           </li>
         ))}

@@ -8,6 +8,7 @@ import type { tasksType } from './interfaces/taskType.ts'
 
 function App() {
 
+ 
   //Placeholder to work on the css, could be used for storage of previos data
   const cssTestTask: tasksType = {
     task: "Meow",
@@ -35,6 +36,11 @@ function App() {
     setTasks((t) => [...t, newTask]);
     setNewTask(emptyTask);
   }
+
+  const handleRemoveTask = (index: number) => {
+    setTasks(tasks.filter((_, i) => i !== index))
+  }
+   
   //We could potentially make components of all the 'parts' of the page, might help with readability
   return (
     <div className='app'>
@@ -43,7 +49,15 @@ function App() {
         <WeatherItemDetail />
       </div>
       <DailyCatItem />
-      <UlItem className="toDo" TaskItemType={tasks} title='Active Tasks' iconClassName='fa-regular fa-clock' completeIcon='fa-regular fa-circle-check' trashIcon='fa-regular fa-trash-can' />
+      <UlItem
+        className="toDo"
+        TaskItemType={tasks}
+        title='Active Tasks'
+        iconClassName='fa-regular fa-clock'
+        completeIcon='fa-regular fa-circle-check'
+        trashIcon='fa-regular fa-trash-can'
+        handleDelete={handleRemoveTask}
+      />
       {/* Add task div */}
       <div className="addTask">
         <h2><i className="fa-solid fa-circle-plus"></i>Add New Task</h2>
@@ -57,7 +71,15 @@ function App() {
           <button onClick={handleAddTask}><i className="fa-solid fa-plus"></i>Add new task</button>
         </div>
       </div>
-      <UlItem className='completedTasks' TaskItemType={completedTasks} title='Completed Tasks' iconClassName='fa-regular fa-circle-check' completeIcon='fa-regular fa-circle-check' trashIcon='' />
+      <UlItem
+        className='completedTasks'
+        TaskItemType={completedTasks}
+        title='Completed Tasks'
+        iconClassName='fa-regular fa-circle-check'
+        completeIcon='fa-regular fa-circle-check'
+        trashIcon=''
+        handleDelete={() => { }}
+      />
 
 
     </div>

@@ -7,4 +7,12 @@ export type tasksType = {
 export type handleTaskIcons = {
   completeIcon: string,
   trashIcon: string,
+  handleDelete : (index: number) => unknown,
+}
+
+export type PropsUlType = {
+  TaskItemType: tasksType[],
+  className: string,
+  title: string,
+  iconClassName: string,
 }
