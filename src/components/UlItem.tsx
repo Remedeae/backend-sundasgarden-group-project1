@@ -13,7 +13,7 @@ function ulItem(props: PropsUlType & handleTaskIcons) {
 {/*             <i className={props.indexIcon}></i> */}
             <TaskItem task={t.task} description={t.description} tags={t.tags} />
             <div className="task__action">
-              <i className={props.completeIcon}></i>
+              <i className={props.completeIcon} onClick={() => props.handleComplete(index)}></i>
               <i className={props.trashIcon} onClick={() => props.handleDelete(index)}></i>
             </div>
           </li>
