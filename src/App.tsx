@@ -40,7 +40,13 @@ function App() {
   const handleRemoveTask = (index: number) => {
     setTasks(tasks.filter((_, i) => i !== index))
   }
-   
+
+  const handleCompleteTask = ( index : number) => {
+    setCompletedTasks([...completedTasks, tasks[index]] )
+    handleRemoveTask(index);
+
+  }
+
   //We could potentially make components of all the 'parts' of the page, might help with readability
   return (
     <div className='app'>
@@ -57,6 +63,7 @@ function App() {
         completeIcon='fa-regular fa-circle-check'
         trashIcon='fa-regular fa-trash-can'
         handleDelete={handleRemoveTask}
+        handleComplete={handleCompleteTask}
       />
       {/* Add task div */}
       <div className="addTask">
@@ -79,6 +86,7 @@ function App() {
         completeIcon='fa-regular fa-circle-check'
         trashIcon=''
         handleDelete={() => { }}
+        handleComplete={()=>{}}
       />
 
 

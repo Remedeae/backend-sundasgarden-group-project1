@@ -8,6 +8,7 @@ export type handleTaskIcons = {
   completeIcon: string,
   trashIcon: string,
   handleDelete : (index: number) => unknown,
+  handleComplete : (index: number) => unknown,
 }
 
 export type PropsUlType = {
