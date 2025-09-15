@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import UlItem from './components/UlItem.tsx'
 import WeatherItem from './components/weatherItem.tsx'
-
-import catPlaceholder from './assets/cat-placeholder.jfif' //placeholder for API data
+import DailyCatItem from './components/dailyCatItem.tsx'
 
 import type { tasksType } from './interfaces/taskType.ts'
 //import type { WeatherItemType } from './interfaces/weatherType.ts'
@@ -13,7 +12,7 @@ function App() {
   //Maybe make objects out of hefty data chunks? I havn't assigned types to this data yet
   let city = "Helsingborg"
   let weather = {
-    weather : "Heavy Snow",
+    weather: "Heavy Snow",
     icon: "fa-regular fa-snowflake",
     color: "#9de6f0ff",
   }
@@ -72,13 +71,7 @@ function App() {
         </div>
       </div>
       {/* Cat div */}
-      <div className="catPic">
-        <h2><i className="fa-regular fa-heart"></i>Daily Cat</h2>
-        <div className='img-container'>
-          <img src={catPlaceholder} alt="Cat of the Day" />
-          <p><i className="fa-solid fa-camera"></i>Photo of the Day</p>
-        </div>
-      </div>
+      <DailyCatItem />
       {/* ToDo list div */}
       <UlItem className="toDo" TaskItemType={tasks} title='Active Tasks' iconClassName='fa-regular fa-clock' completeIcon='fa-regular fa-circle-check' trashIcon='fa-regular fa-trash-can' />
       {/* Add task div */}

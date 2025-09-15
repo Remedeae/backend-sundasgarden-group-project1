@@ -6,7 +6,7 @@ AI usage:
 - Used AI to ask ask questions when I get stuck on something that doesn't work.
     (Eg why my html code wasn't rendering -> hidden throw due to undefined variables)
 
-
+Maya 15/9: Cat picture mounts twice, apparently that's because of that react is in development mode.
 
 Maya 12/9:
 Something is up with prepros, so I swapped over to live sass compiler (extention).
