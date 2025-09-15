@@ -28,12 +28,11 @@ function DailyCatItem() {
             <h2><i className="fa-regular fa-heart"></i>Daily Cat</h2>
             <div className="img-container">
                 {catImage && (
-                    <img src={catImage.url} alt="Your daily cat image" width={catImage.width} height={catImage.height} />
+                    <img src={catImage.url} alt="Your daily cat image" /* width={catImage.width} height={catImage.height} */ />
                 )}
                 <p><i className="fa-solid fa-camera"></i>Photo of the Day</p>
             </div>
         </div>
-        //cat img will mount twice, but that's because of the development environment
     )
 }
 

@@ -1,13 +1,8 @@
-import { useState } from 'react'
-import UlItem from './components/UlItem.tsx'
-import WeatherItemDetail from './components/weatherItemDetail.tsx'
-import WeatherItemMain from './components/weatherItemMain.tsx'
-import DailyCatItem from './components/dailyCatItem.tsx'
 
-import type { tasksType } from './interfaces/taskType.ts'
+import { useState } from "react";
+import type { tasksType } from "../interfaces/taskType";
 
-function App() {
-
+function AddTaskItem() {
   //Placeholder to work on the css, could be used for storage of previos data
   const cssTestTask: tasksType = {
     task: "Meow",
@@ -35,17 +30,8 @@ function App() {
     setTasks((t) => [...t, newTask]);
     setNewTask(emptyTask);
   }
-  //We could potentially make components of all the 'parts' of the page, might help with readability
-  return (
-    <div className='app'>
-      <div className="weather" >
-        <WeatherItemMain />
-        <WeatherItemDetail />
-      </div>
-      <DailyCatItem />
-      <UlItem className="toDo" TaskItemType={tasks} title='Active Tasks' iconClassName='fa-regular fa-clock' completeIcon='fa-regular fa-circle-check' trashIcon='fa-regular fa-trash-can' />
-      {/* Add task div */}
-      <div className="addTask">
+    return (
+        <div className="addTask">
         <h2><i className="fa-solid fa-circle-plus"></i>Add New Task</h2>
         <div className='addTask__input'>
           <label htmlFor="newTask">Task:</label>
@@ -57,11 +43,7 @@ function App() {
           <button onClick={handleAddTask}><i className="fa-solid fa-plus"></i>Add new task</button>
         </div>
       </div>
-      <UlItem className='completedTasks' TaskItemType={completedTasks} title='Completed Tasks' iconClassName='fa-regular fa-circle-check' completeIcon='fa-regular fa-circle-check' trashIcon='' />
+    )
+}
 
-
-    </div>
-  )
-};
-
-export default App;
+export default AddTaskItem
