@@ -18,3 +18,12 @@ Should we have multipletags added to the task or just a single one? ->with singl
 becomes reduntant.
 Should we use fontawsome by importing it via script or installing it via node for icons? - script(12/9)
 
+Ida-Sofie 14/9: 
+The code for component weatherItem.tsx, the API with the weather, doesn't work. 
+The problem is this: 
+"<p>{weather.current.temperature_2m} {weather.current_units.temperature_2m}</p>"
+It doesn't find the variables. 
+Using chatGPT. 
+answer from chatGPT is saved in txt-file. Differences between code can be found in commit and push, afternoon 2025-09-14, 
+on branch weatherItem. 
+
