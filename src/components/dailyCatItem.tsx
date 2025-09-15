@@ -11,31 +11,29 @@ function DailyCatItem() {
 
     const fetchData = async () => {
         try {
-        const response = await fetch("https://api.thecatapi.com/v1/images/search");
-        const data: CatResponse[] = await response.json();
-        setCatImage(data[0]);
+            const response = await fetch("https://api.thecatapi.com/v1/images/search");
+            const data: CatResponse[] = await response.json();
+            setCatImage(data[0]);
         } catch (error) {
-        console.error("Error fetching image:", error);
+            console.error("Error fetching image:", error);
         }
     };
 
     useEffect(() => {
-    fetchData();
+        fetchData();
     }, []);
 
     return (
-        <div className="weather__details-item">
-            {/*<i className={props.icon} style={styleColor}></i>
-            <div>
-                <p>{props.titel}</p>
-                <h6>{props.info}</h6>
-            </div>*/}
-            <div>
+        <div className="catPic">
+            <h2><i className="fa-regular fa-heart"></i>Daily Cat</h2>
+            <div className="img-container">
                 {catImage && (
-                <img src={catImage.url} alt="Your daily cat image" width={catImage.width} height={catImage.height}/>
+                    <img src={catImage.url} alt="Your daily cat image" width={catImage.width} height={catImage.height} />
                 )}
+                <p><i className="fa-solid fa-camera"></i>Photo of the Day</p>
             </div>
         </div>
+        //cat img will mount twice, but that's because of the development environment
     )
 }
 
