@@ -1,4 +1,4 @@
-import type { handleTaskIcons, tasksType } from "../interfaces/taskType";
+import type { tasksType } from "../interfaces/taskType";
 
 function TaskItem(props: tasksType) {
     return (
