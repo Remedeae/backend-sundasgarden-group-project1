@@ -86,7 +86,7 @@ function App() {
         completeIcon='fa-regular fa-circle-check'
         trashIcon=''
         handleDelete={() => { }}
-        handleComplete={()=>{}}
+        handleComplete={handleRemoveTask}
       />
 
 
