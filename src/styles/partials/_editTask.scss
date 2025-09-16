@@ -1,0 +1,9 @@
+@use '../config' as *;
+.editTask {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    padding: 4%;
+    background-color: $color-green-light;
+    
+}

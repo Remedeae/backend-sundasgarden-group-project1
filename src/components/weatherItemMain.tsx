@@ -1,4 +1,4 @@
-import type { WeatherResponse } from "../interfaces/weatherResponse";
+import type { WeatherResponse } from "../interfaces/weatherType";
 //import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";

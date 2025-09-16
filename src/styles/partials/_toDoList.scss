@@ -7,6 +7,18 @@
         color: $color-blue;
     }
 
+    & li {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    }
+    & .fa-circle-check {
+        color: $color-green-dark;
+        padding: 0.3rem;
+        border: solid 0.1rem $color-light;
+        border-radius: 0.3rem;
+    }
+
     & .task__action {
         display: flex;
         align-items: center;
@@ -15,7 +27,6 @@
 
         & i {
             padding: 15% 0 15% 15%;
-            font-size: 0.9rem;
         }
     }
 

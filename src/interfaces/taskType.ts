@@ -4,11 +4,20 @@ export type tasksType = {
   tags: string,
 }
 
+export type PopUpClassType = {
+  popUpClass: string,
+}
+
 export type handleTaskIcons = {
   completeIcon: string,
+  editIcon: string,
   trashIcon: string,
-  handleDelete : (index: number) => unknown,
-  handleComplete : (index: number) => unknown,
+  setTask: React.Dispatch<React.SetStateAction<tasksType[]>>
+  handleComplete: (index: number) => unknown,
+  handleDelete: (
+    index: number,
+    TaskItemType: tasksType[],
+    setTask: React.Dispatch<React.SetStateAction<tasksType[]>>) => unknown,
 }
 
 export type PropsUlType = {
@@ -16,4 +25,8 @@ export type PropsUlType = {
   className: string,
   title: string,
   iconClassName: string,
+}
+
+export type styleType = {
+  display: string,
 }
