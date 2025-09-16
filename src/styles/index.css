@@ -78,14 +78,26 @@ body {
 }
 .app li {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: start;
   list-style: none;
   padding: 2.5%;
   margin: 0;
   margin-bottom: 2%;
 }
+.app li i {
+  padding: 0.2rem;
+}
 .app li p {
   max-width: 98%;
+}
+.app li .fa-trash-can,
+.app li .fa-pen-to-square {
+  font-size: 1rem;
+}
+.app .task__info {
+  width: 95%;
+  padding: 2%;
 }
 
 ::-moz-placeholder {
@@ -110,6 +122,16 @@ i {
   color: #0A0A0A;
   padding: 2%;
   font-size: 1.2rem;
+}
+
+.popUp {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.displayBlock {
+  display: block;
 }
 
 .weather {
@@ -192,6 +214,17 @@ i {
 .toDo .fa-clock {
   color: #2B7FFF;
 }
+.toDo li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.toDo .fa-circle-check {
+  color: #00A63E;
+  padding: 0.3rem;
+  border: solid 0.1rem #E5E5E5;
+  border-radius: 0.3rem;
+}
 .toDo .task__action {
   display: flex;
   align-items: center;
@@ -200,7 +233,6 @@ i {
 }
 .toDo .task__action i {
   padding: 15% 0 15% 15%;
-  font-size: 0.9rem;
 }
 
 .addTask {
@@ -251,14 +283,16 @@ i {
 }
 .completedTasks .task__info {
   width: 95%;
+  padding: 2%;
 }
 .completedTasks li {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: start;
   background-color: #e6ffec;
 }
-.completedTasks li i {
-  padding: 0.2rem;
+
+.editTask {
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  padding: 4%;
+  background-color: #e6ffec;
 }/*# sourceMappingURL=index.css.map */

@@ -1,4 +1,4 @@
-@use 'config' as *;
+@use 'config' as *; //imports global variables 
 
 body {
     display: flex;
@@ -29,15 +29,30 @@ body {
 
     & li {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: start;
         list-style: none;
         padding: 2.5%;
         margin: 0;
         margin-bottom: 2%;
 
+        & i {
+            padding: 0.2rem;
+        }
+
         & p {
             max-width: 98%;
         }
+
+        & .fa-trash-can,
+        .fa-pen-to-square {
+            font-size: 1rem;
+        }
+    }
+
+    & .task__info {
+        width: 95%;
+        padding: 2%;
     }
 }
 
@@ -59,4 +74,13 @@ i {
     color: $color-dark;
     padding: 2%;
     font-size: 1.2rem;
+}
+
+.popUp {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+.displayBlock {
+    display: block;
 }
