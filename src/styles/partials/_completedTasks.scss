@@ -2,6 +2,7 @@
 
 .completedTasks {
    grid-area: 2/3/3/4;
+   overflow: scroll;
 
    & .fa-circle-check {
       color: $color-green-mid;
