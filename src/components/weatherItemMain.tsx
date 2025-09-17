@@ -1,4 +1,5 @@
 import type { WeatherResponse } from "../interfaces/weatherType";
+import WeatherItemDetail from "./weatherItemDetail";
 //import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -78,8 +79,10 @@ function WeatherItemMain() {
         return isoString.split("T")[1]; // "19:21"
     }
 
+    //const percivedTemperature :string | null = `${weather.current.apparent_temperature} ${weather.current_units.apparent_temperature}`
+
     return (
-        <div>
+        <div className="weather">
             <div className='weather__main'>
                 <h2><i className="fa-solid fa-cloud-sun"></i>Weather</h2>
                 <div>
@@ -96,11 +99,16 @@ function WeatherItemMain() {
                         </h1>
                     )}
                     <p>{weatherObject.weather}</p> {/* To dynamic */}
-
-                    <p>^^Maybe insert more dynamic data here?^^</p> {/* To highlight comment */}
                 </div>
             </div>
-
+            <div className="weather__details">
+                {weather && weather.current && (
+                    <WeatherItemDetail icon="fa-solid fa-temperature-full" color="#c76000ff" titel="Perceived temperature:" info={`${weather.current.apparent_temperature} ${weather.current_units.apparent_temperature}`} />
+                )}
+                {weather && weather.current && (
+                    <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Perceived temperature:" info={`${weather.current.apparent_temperature} ${weather.current_units.apparent_temperature}`} />
+                )}
+            </div>
         </div >
     )
 }

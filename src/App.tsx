@@ -23,7 +23,7 @@ function App() {
   const [newTask, setNewTask] = useState<tasksType>(emptyTask);
   const [completedTasks, setCompletedTasks] = useState<tasksType[]>(initialTasks);
 
-//Adding, moving and removing tasks-------------------------------------------------------------
+  //Adding, moving and removing tasks-------------------------------------------------------------
   const handleNewTaskChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof tasksType) => {
     setNewTask({
       ...newTask,
@@ -44,7 +44,7 @@ function App() {
     setCompletedTasks([...completedTasks, tasks[index]])
     handleRemoveTask(index, tasks, setTasks);
   }
-//Editing tasks-----------------------------------------------------------
+  //Editing tasks-----------------------------------------------------------
   const [editIndexActive, setEditIndexActive] = useState<number | null>(null);
   const [editIndexCompleted, setEditIndexCompleted] = useState<number | null>(null);
 
@@ -57,8 +57,8 @@ function App() {
 
   const handleEditPopupComleted = (index: number) => {
     setEditIndexCompleted(editIndexCompleted === index ? null : index)
-  //  console.log(completedTasks[index]);
-  //  console.log(completedTasks[index].task);
+    //  console.log(completedTasks[index]);
+    //  console.log(completedTasks[index].task);
   }
 
   const handleEditTaskChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof tasksType) => {
@@ -66,10 +66,10 @@ function App() {
       ...taskEditStorage,
       [field]: e.target.value
     });
-//    console.log(completedTasks[index]);
+    //    console.log(completedTasks[index]);
   }
 
-  const handleEditCompleted = (index : number) => {
+  const handleEditCompleted = (index: number) => {
 
     setCompletedTasks([...completedTasks.filter((_, i) => i < index), taskEditStorage, ...completedTasks.filter((_, i) => i > index)])
     setTaskEditStorage(emptyTask);
@@ -82,10 +82,7 @@ function App() {
   //We could potentially make components of all the 'parts' of the page, might help with readability
   return (
     <div className='app'>
-      <div className="weather" >
-        <WeatherItemMain />
-        <WeatherItemDetail />
-      </div>
+      <WeatherItemMain />
       <DailyCatItem />
       {/* Active Tasks div */}
       <div className="toDo">
@@ -147,12 +144,12 @@ function App() {
                 <div className={editIndexCompleted === index ? "popUp displayBlock" : "popUp"}>
                   <div className='editTask'>
                     <label htmlFor="editCompleted">Task:</label>
-                    <input type="text" id="editCompleted" placeholder={editIndexCompleted === index ? `${completedTasks[index].task}`: "Enter titel..."} value={taskEditStorage.task} onChange={(e => handleEditTaskChange(e, "task"))} />
+                    <input type="text" id="editCompleted" placeholder={editIndexCompleted === index ? `${completedTasks[index].task}` : "Enter titel..."} value={taskEditStorage.task} onChange={(e => handleEditTaskChange(e, "task"))} />
                     <label htmlFor="editCompletedDescription">Description:</label>
-                    <input type="text" id="editCompletedDescription" placeholder={editIndexCompleted === index ? `${completedTasks[index].description}`: "Enter description..."} value={taskEditStorage.description} onChange={(e) => handleEditTaskChange(e, "description")} />
+                    <input type="text" id="editCompletedDescription" placeholder={editIndexCompleted === index ? `${completedTasks[index].description}` : "Enter description..."} value={taskEditStorage.description} onChange={(e) => handleEditTaskChange(e, "description")} />
                     <label htmlFor="editCompletedTag">Tags:</label>
                     <input type="checkbox" id='editCompletedTag' />
-                    <button onClick={()=>handleEditCompleted(index)}>Update task</button>
+                    <button onClick={() => handleEditCompleted(index)}>Update task</button>
                   </div>
                 </div>
                 <div>
