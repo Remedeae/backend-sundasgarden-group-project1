@@ -65,9 +65,9 @@ body {
 
 .app {
   display: grid;
-  grid-template: 1fr 1fr/1fr 1.4fr 1fr;
+  grid-template: 1fr 2fr/1fr 1.4fr 1fr;
   width: 97vw;
-  height: 94vh;
+  height: 97vh;
 }
 .app > *,
 .app li {
@@ -143,7 +143,6 @@ i {
   margin: 3%;
 }
 .weather__main > div {
-  margin-top: 13%;
   text-align: center;
 }
 .weather__main h1 {
@@ -260,9 +259,9 @@ i {
   color: #00C950;
 }
 .addTask button {
-  margin: auto;
-  padding: 3%;
-  width: 84%;
+  align-self: center;
+  padding: 1%;
+  width: 60%;
   border: none;
   border-radius: 1rem;
   color: white;

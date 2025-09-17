@@ -41,13 +41,13 @@ function WeatherItemMain() {
         return directions[index];
     }
 
-    const iconSnow : string = "fa-regular fa-snowflake";
+    const iconSnow: string = "fa-regular fa-snowflake";
     function weatherCodeToText(code: number): string {
         const weatherMap: Record<number, string> = {
-/*             0: {
-                weather : "Clear sky",
-                icon : iconSnow,
-            } */
+            /*             0: {
+                            weather : "Clear sky",
+                            icon : iconSnow,
+                        } */
             1: "Mainly clear",
             2: "Partly cloudy",
             3: "Overcast",
@@ -95,17 +95,12 @@ function WeatherItemMain() {
                     {weather && weather.current && (
                         <h1>
                             <i className={weatherObject.icon} style={{ color: weatherObject.color }}></i>
-                            Weather update: {weatherCodeToText(weather.current.weather_code)}<br></br>
-                            Temperature: {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>
-                            Perceived temperature: {weather.current.apparent_temperature} {weather.current_units.apparent_temperature} <br></br>
-                            Wind speed: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m} <br></br>
-                            Wind direction: {weather.current.wind_direction_10m} {weather.current_units.wind_direction_10m} {degToCompass(weather.current.wind_direction_10m)}<br></br>
-                            The sun will rise at {getTimeFromISO(weather.daily.sunrise[0])} and go down at {getTimeFromISO(weather.daily.sunset[0])}
+                            {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>
                         </h1>
                     )}
                     {weather && weather.current && (
-                        <p>{weatherCodeToText(weather.current.weather_code)}</p> 
-                    
+                        <p>{weatherCodeToText(weather.current.weather_code)}</p>
+
                     )}
                 </div>
             </div>
