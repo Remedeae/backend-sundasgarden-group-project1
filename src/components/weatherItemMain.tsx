@@ -15,6 +15,7 @@ function WeatherItemMain() {
     const [weather, setWeather] = useState<WeatherResponse | null>(null);
 
     const fetchData = async () => {
+
         try {
             const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=56.0467&longitude=12.6944&daily=sunrise,sunset&current=apparent_temperature,temperature_2m,wind_speed_10m,wind_direction_10m,weather_code&timezone=Europe%2FBerlin&forecast_days=1&wind_speed_unit=ms");
             const data: WeatherResponse = await response.json();
@@ -40,9 +41,13 @@ function WeatherItemMain() {
         return directions[index];
     }
 
+    const iconSnow : string = "fa-regular fa-snowflake";
     function weatherCodeToText(code: number): string {
         const weatherMap: Record<number, string> = {
-            0: "Clear sky",
+/*             0: {
+                weather : "Clear sky",
+                icon : iconSnow,
+            } */
             1: "Mainly clear",
             2: "Partly cloudy",
             3: "Overcast",
@@ -98,7 +103,10 @@ function WeatherItemMain() {
                             The sun will rise at {getTimeFromISO(weather.daily.sunrise[0])} and go down at {getTimeFromISO(weather.daily.sunset[0])}
                         </h1>
                     )}
-                    <p>{weatherObject.weather}</p> {/* To dynamic */}
+                    {weather && weather.current && (
+                        <p>{weatherCodeToText(weather.current.weather_code)}</p> 
+                    
+                    )}
                 </div>
             </div>
             <div className="weather__details">
