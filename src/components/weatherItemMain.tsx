@@ -30,14 +30,14 @@ function WeatherItemMain() {
     //via help from chatGPT
     function degToCompass(WindDirection: number): string {
         const directions = [
-        "N", "NNE", "NE", "ENE",
-        "E", "ESE", "SE", "SSE",
-        "S", "SSW", "SW", "WSW",
-        "W", "WNW", "NW", "NNW"
+            "N", "NNE", "NE", "ENE",
+            "E", "ESE", "SE", "SSE",
+            "S", "SSW", "SW", "WSW",
+            "W", "WNW", "NW", "NNW"
         ];
         const index = Math.floor((WindDirection + 11.25) / 22.5) % 16;
         return directions[index];
-        }
+    }
 
     function weatherCodeToText(code: number): string {
         const weatherMap: Record<number, string> = {
@@ -74,11 +74,9 @@ function WeatherItemMain() {
         return weatherMap[code] ?? "Unknown weather code";
     }
 
-    //somehow this doesn't work in react, may fix. Or skip sunrise/set
     function getTimeFromISO(isoString: string): string {
-        
         return isoString.split("T")[1]; // "19:21"
-    };
+    }
 
     return (
         <div>
@@ -94,7 +92,7 @@ function WeatherItemMain() {
                             Perceived temperature: {weather.current.apparent_temperature} {weather.current_units.apparent_temperature} <br></br>
                             Wind speed: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m} <br></br>
                             Wind direction: {weather.current.wind_direction_10m} {weather.current_units.wind_direction_10m} {degToCompass(weather.current.wind_direction_10m)}<br></br>
-                            {/* The sun will rise at {getTimeFromISO(weather.daily.sunrise)} and go down at {getTimeFromISO(weather.daily.sunset)}*/}
+                            The sun will rise at {getTimeFromISO(weather.daily.sunrise[0])} and go down at {getTimeFromISO(weather.daily.sunset[0])}
                         </h1>
                     )}
                     <p>{weatherObject.weather}</p> {/* To dynamic */}

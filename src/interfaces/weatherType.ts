@@ -29,7 +29,7 @@ export type WeatherResponse = {
         sunset: string,
     },
     daily: {
-        sunrise: string,
-        sunset: string,
+        sunrise: string[],
+        sunset: string[],
     },
 };
