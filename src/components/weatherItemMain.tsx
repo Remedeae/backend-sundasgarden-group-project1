@@ -42,6 +42,7 @@ function WeatherItemMain() {
     }
 
     const iconSnow : string = "fa-regular fa-snowflake";
+    const iconOvercast : string = "fa-solid fa-cloud-sun";
     function weatherCodeToText(code: number): { weather: string; icon: string; } {
         const weatherMap: Record<number, { weather: string; icon: string; }> = {
             0: {
@@ -58,7 +59,7 @@ function WeatherItemMain() {
             },
             3: {
                 weather : "Overcast",
-                icon : iconSnow,
+                icon : iconOvercast,
             },
             45: {
                 weather : "Fog",
@@ -175,12 +176,12 @@ function WeatherItemMain() {
                     <p>{location}</p> {/* To dynamic */}
                     {weather && weather.current && (
                         <h1>
-                            <i className={weatherObject.icon} style={{ color: weatherObject.color }}></i>
+                            <i className={weatherCodeToText(weather.current.weather_code).icon} style={{ color: weatherObject.color }}></i>
                             {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>                            
                         </h1>
                     )}
                     {weather && weather.current && (
-                        <p>{weatherCodeToText(weather.current.weather_code).icon}{" "}{weatherCodeToText(weather.current.weather_code).weather}</p> 
+                        <p>{weatherCodeToText(weather.current.weather_code).weather}</p> 
                     
                     )}
                 </div>
