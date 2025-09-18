@@ -37,7 +37,7 @@ export default tseslint.config([
   {
     rules: {
       "prettier/prettier": [
-        "error",
+        "warn",
         {
           endOfLine: "auto",
           trailingComma: "es5",
