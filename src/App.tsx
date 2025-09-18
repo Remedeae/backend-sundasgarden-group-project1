@@ -130,8 +130,20 @@ function App() {
           <input type="text" id="newTask" placeholder='Enter task...' value={newTask.task} onChange={(e => handleNewTaskChange(e, "task"))} />
           <label htmlFor="taskDescription">Description:</label>
           <input type="text" id="taskDescription" placeholder='Enter task description...' value={newTask.description} onChange={(e) => handleNewTaskChange(e, "description")} />
-          <label htmlFor="taskTag">Tags:</label>
-          <input type="checkbox" id='taskTag' />
+          <div className='tags'>
+            <div className='tags__item high'>
+              <input type="checkbox" id='taskTag' />
+              <label htmlFor="taskTag">High</label>
+            </div>
+            <div className='tags__item medium'>
+              <input type="checkbox" id='taskTag' />
+              <label htmlFor="taskTag">Medium</label>
+            </div>
+            <div className='tags__item low'>
+              <input type="checkbox" id='taskTag' />
+              <label htmlFor="taskTag">Low</label>
+            </div>
+          </div>
           <button onClick={handleAddTask}><i className="fa-solid fa-plus"></i>Add new task</button>
         </div>
       </div>

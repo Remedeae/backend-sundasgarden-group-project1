@@ -209,6 +209,7 @@ i {
 
 .toDo {
   grid-area: 1/2/3/3;
+  overflow: scroll;
 }
 .toDo .fa-clock {
   color: #2B7FFF;
@@ -238,6 +239,13 @@ i {
   display: flex;
   flex-direction: column;
 }
+.addTask h2 {
+  margin: 0;
+  padding: 0;
+}
+.addTask h2 i {
+  margin: inherit;
+}
 .addTask * {
   margin: 1%;
 }
@@ -258,6 +266,37 @@ i {
 .addTask i {
   color: #00C950;
 }
+.addTask .tags {
+  display: flex;
+  justify-content: space-around;
+}
+.addTask .tags__item {
+  display: flex;
+  padding: 1%;
+  border: solid 0.1rem;
+  border-radius: 1rem;
+}
+.addTask .tags .high {
+  background-color: #ff9e9e;
+  border-color: #880000;
+}
+.addTask .tags .high label {
+  color: #880000;
+}
+.addTask .tags .medium {
+  background-color: #ffeea3;
+  border-color: #8d7300;
+}
+.addTask .tags .medium label {
+  color: #8d7300;
+}
+.addTask .tags .low {
+  background-color: #e6ffec;
+  border-color: #00A63E;
+}
+.addTask .tags .low label {
+  color: #00A63E;
+}
 .addTask button {
   align-self: center;
   padding: 1%;
@@ -273,6 +312,7 @@ i {
 
 .completedTasks {
   grid-area: 2/3/3/4;
+  overflow: scroll;
 }
 .completedTasks .fa-circle-check {
   color: #00C950;

@@ -2,6 +2,7 @@
 
 .toDo {
     grid-area: 1/2/3/3;
+    overflow: scroll;
 
     & .fa-clock {
         color: $color-blue;
