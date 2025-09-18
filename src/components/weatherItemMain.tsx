@@ -41,74 +41,80 @@ function WeatherItemMain() {
         return directions[index];
     }
 
-
     const iconSnow : string = "fa-regular fa-snowflake";
-    const iconOvercast : string = "fa-solid fa-cloud-sun";
+    const iconCloudSun : string = "fa-solid fa-cloud-sun"; //cloudy, for overcast etc.
+    const iconSun : string = "fa-solid fa-sun";
+    const iconCloud : string = "fa-solid fa-cloud";
+    const iconFogCloud : string = "fa-solid fa-smog";
+    const iconCloudShowersWater : string = "fa-solid fa-cloud-showers-water";
+    const iconCloudShowersHeavy  : string = "fa-solid fa-cloud-showers-heavy";
+    const iconBolt : string = "fa-solid fa-bolt";
+    const iconCloudRain : string = "fa-solid fa-cloud-rain";
     function weatherCodeToText(code: number): { weather: string; icon: string; } {
         const weatherMap: Record<number, { weather: string; icon: string; }> = {
             0: {
                 weather : "Clear sky",
-                icon : iconSnow,
+                icon : iconSun,
             },
             1: {
                 weather : "Mainly clear",
-                icon : iconSnow,
+                icon : iconSun,
             },   
             2: {
                 weather : "Partly cloudy",
-                icon : iconSnow,
+                icon : iconCloudSun,
             },
             3: {
                 weather : "Overcast",
-                icon : iconOvercast,
+                icon : iconCloud,
             },
             45: {
                 weather : "Fog",
-                icon : iconSnow,
+                icon : iconFogCloud,
             },
             48: {
                 weather : "Depositing rime fog",
-                icon : iconSnow,
+                icon : iconFogCloud,
             },
             51: {
                 weather : "Drizzle: Light",
-                icon : iconSnow,
+                icon : iconCloudShowersWater,
             },
             53: {
                 weather : "Drizzle: Moderate",
-                icon : iconSnow,
+                icon : iconCloudShowersWater,
             },
             55: {
                 weather : "Drizzle: Dense",
-                icon : iconSnow,
+                icon : iconCloudShowersHeavy,
             },
             56: {
                 weather : "Freezing drizzle: Light",
-                icon : iconSnow,
+                icon : iconCloudShowersHeavy,
             },
             57: {
                 weather : "Freezing drizzle: Dense",
-                icon : iconSnow,
+                icon : iconCloudShowersHeavy,
             },
             61: {
                 weather : "Rain: Slight",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             63: {
                 weather : "Rain: Moderate",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             65: {
                 weather : "Rain: Heavy",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             66: {
                 weather : "Freezing rain: Light",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             67: {
                 weather : "Freezing rain: Heavy",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             71: {
                 weather : "Snow fall: Slight",
@@ -128,15 +134,15 @@ function WeatherItemMain() {
             },
             80: {
                 weather : "Rain showers: Slight",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             81: {
                 weather : "Rain showers: Moderate",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             82: {
                 weather : "Rain showers: Violent",
-                icon : iconSnow,
+                icon : iconCloudRain,
             },
             85: {
                 weather : "Snow showers: Slight",
@@ -148,15 +154,15 @@ function WeatherItemMain() {
             },
             95: {
                 weather : "Thunderstorm: Slight or moderate",
-                icon : iconSnow,
+                icon : iconBolt,
             },
             96: {
                 weather : "Thunderstorm with slight hail",
-                icon : iconSnow,
+                icon : iconBolt,
             },
             99: {
                 weather : "Thunderstorm with heavy hail",
-                icon : iconSnow,
+                icon : iconBolt,
             },
 
         };
@@ -178,15 +184,12 @@ function WeatherItemMain() {
                     <p>{location}</p> {/* To dynamic */}
                     {weather && weather.current && (
                         <h1>
-
                             <i className={weatherCodeToText(weather.current.weather_code).icon} style={{ color: weatherObject.color }}></i>
                             {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>                            
                         </h1>
                     )}
                     {weather && weather.current && (
                         <p>{weatherCodeToText(weather.current.weather_code).weather}</p> 
-                    
-
                     )}
                 </div>
             </div>
@@ -206,7 +209,6 @@ function WeatherItemMain() {
                 {weather && weather.current && (
                     <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Sunset:" info={`${getTimeFromISO(weather.daily.sunset[0])}`} />
                 )}
-
             </div>
         </div >
     )
