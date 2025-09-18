@@ -12,7 +12,13 @@ function WeatherItemMain() {
   /*const location is the address that goes in .. and returns lat and lon. Note that 
         A: you can use åäö, for instance "Malmö" is fine
         B: blankstep is ok, for instance "New York"*/
-  const [location, setLocation] = useState<string>("Helsingborg");
+  const [location, setLocation] = useState<string>(() => {
+    const saved = localStorage.getItem("location");
+    return saved ?? "Helsingborg";
+  });
+  useEffect(() => {
+    localStorage.setItem("location", location);
+  }, [location]);
 
   const apiKeyGeocoding = "68cc38899a427916801981cpx7a12d7";
   const [geoData, setGeoData] = useState<GeoCodingResponse | null>(null);
@@ -34,6 +40,7 @@ function WeatherItemMain() {
         return response.json() as Promise<GeoCodingResponse[]>; // cast response type
       })
       .then((json) => {
+        //console.log(json);
         if (json.length > 0) {
           setGeoData(json[0]); // use the first match
         } else {
@@ -278,7 +285,7 @@ function WeatherItemMain() {
             <input
               type="text"
               id="taskDescription"
-              placeholder={location}
+              placeholder="Enter location..."
               value={location}
               onChange={(e) => handleUpdateLocation(e)}
             />

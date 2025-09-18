@@ -1,28 +1,31 @@
-import { useState } from "react";
-//import UlItem from './components/UlItem.tsx'
-//import WeatherItemDetail from "./components/weatherItemDetail.tsx";
+import { useState, useEffect } from "react";
 import WeatherItemMain from "./components/weatherItemMain.tsx";
 import DailyCatItem from "./components/dailyCatItem.tsx";
 
 import type { tasksType } from "./interfaces/taskType.ts";
 
 function App() {
-  //Placeholder to work on the css, could be used for storage of previos data
-  const cssTestTask: tasksType = {
-    task: "Meow",
-    description: "Mom give me treats NOW!",
-    tags: "",
-  };
-  const initialTasks: tasksType[] = [cssTestTask]; //reset to "" when testing is complete
   const emptyTask: tasksType = {
     task: "",
     description: "",
-    tags: "",
+    tags: [],
   };
-  const [tasks, setTasks] = useState<tasksType[]>(initialTasks);
+  const [tasks, setTasks] = useState<tasksType[]>(() => {
+    const saved = localStorage.getItem("tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
   const [newTask, setNewTask] = useState<tasksType>(emptyTask);
-  const [completedTasks, setCompletedTasks] =
-    useState<tasksType[]>(initialTasks);
+  const [completedTasks, setCompletedTasks] = useState<tasksType[]>(() => {
+    const saved = localStorage.getItem("completedTasks");
+    return saved ? JSON.parse(saved) : [];
+  });
+  //Local storage----------------------------------------------------
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+  useEffect(() => {
+    localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+  }, [completedTasks]);
 
   //Adding, moving and removing tasks-------------------------------------------------------------
   const handleNewTaskChange = (
@@ -151,8 +154,8 @@ function App() {
                       value={taskEditStorage.description}
                       onChange={(e) => handleEditTaskChange(e, "description")}
                     />
-                    <label htmlFor="taskTag">Tags:</label>
-                    <input type="checkbox" id="taskTag" />
+                    {/*                     <label htmlFor="taskTag">Tags:</label>
+                    <input type="checkbox" id="taskTag" /> */}
                     <button onClick={() => handleEditActive(index)}>
                       Update task
                     </button>
