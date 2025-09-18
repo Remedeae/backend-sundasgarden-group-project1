@@ -5,42 +5,55 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function WeatherItemMain() {
-    const location: string = "Helsinborg"   //dynamic?    
-    let weatherObject = {   //idea with this is to make an object to display depending on weather gathered from API
-        weather: "Heavy Snow",
-        icon: "fa-regular fa-snowflake",
-        color: "#9de6f0ff",
+  const location: string = "Helsinborg"; //dynamic?
+  const weatherObject = {
+    //idea with this is to make an object to display depending on weather gathered from API
+    weather: "Heavy Snow",
+    icon: "fa-regular fa-snowflake",
+    color: "#9de6f0ff",
+  };
+
+  const [weather, setWeather] = useState<WeatherResponse | null>(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=56.0467&longitude=12.6944&daily=sunrise,sunset&current=apparent_temperature,temperature_2m,wind_speed_10m,wind_direction_10m,weather_code&timezone=Europe%2FBerlin&forecast_days=1&wind_speed_unit=ms"
+      );
+      const data: WeatherResponse = await response.json();
+      setWeather(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
+  };
 
-    const [weather, setWeather] = useState<WeatherResponse | null>(null);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    const fetchData = async () => {
-
-        try {
-            const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=56.0467&longitude=12.6944&daily=sunrise,sunset&current=apparent_temperature,temperature_2m,wind_speed_10m,wind_direction_10m,weather_code&timezone=Europe%2FBerlin&forecast_days=1&wind_speed_unit=ms");
-            const data: WeatherResponse = await response.json();
-            setWeather(data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    //via help from chatGPT
-    function degToCompass(WindDirection: number): string {
-        const directions = [
-            "N", "NNE", "NE", "ENE",
-            "E", "ESE", "SE", "SSE",
-            "S", "SSW", "SW", "WSW",
-            "W", "WNW", "NW", "NNW"
-        ];
-        const index = Math.floor((WindDirection + 11.25) / 22.5) % 16;
-        return directions[index];
-    }
-
+  //via help from chatGPT
+  function degToCompass(WindDirection: number): string {
+    const directions = [
+      "N",
+      "NNE",
+      "NE",
+      "ENE",
+      "E",
+      "ESE",
+      "SE",
+      "SSE",
+      "S",
+      "SSW",
+      "SW",
+      "WSW",
+      "W",
+      "WNW",
+      "NW",
+      "NNW",
+    ];
+    const index = Math.floor((WindDirection + 11.25) / 22.5) % 16;
+    return directions[index];
+  }
 
     const iconSnow : string = "fa-regular fa-snowflake";
     const iconOvercast : string = "fa-solid fa-cloud-sun";
@@ -164,11 +177,12 @@ function WeatherItemMain() {
         return weatherMap[code] ?? "Unknown weather code";
     }
 
-    function getTimeFromISO(isoString: string): string {
-        return isoString.split("T")[1]; // "19:21"
-    }
+    return weatherMap[code] ?? "Unknown weather code";
+  }
 
-    //const percivedTemperature :string | null = `${weather.current.apparent_temperature} ${weather.current_units.apparent_temperature}`
+  function getTimeFromISO(isoString: string): string {
+    return isoString.split("T")[1]; // "19:21"
+  }
 
     return (
         <div className="weather">
@@ -210,6 +224,7 @@ function WeatherItemMain() {
             </div>
         </div >
     )
+
 }
 
 export default WeatherItemMain;

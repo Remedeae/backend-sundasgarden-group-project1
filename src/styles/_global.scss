@@ -1,86 +1,86 @@
-@use 'config' as *; //imports global variables 
+@use "config" as *; //imports global variables
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 * {
-    font-family: $font-main;
-    font-weight: 400;
-    color: $color-mid;
-    line-height: $line-hight;
+  font-family: $font-main;
+  font-weight: 400;
+  color: $color-mid;
+  line-height: $line-hight;
 }
 
 .app {
-    display: grid;
-    grid-template: 1fr 2fr / 1fr 1.4fr 1fr;
-    width: 97vw;
-    height: 97vh;
+  display: grid;
+  grid-template: 1fr 2fr / 1fr 1.4fr 1fr;
+  width: 97vw;
+  height: 97vh;
 
-    &>*,
-    li {
-        border: solid $color-light 0.1rem;
-        border-radius: 1rem;
-        margin: 2%;
-        padding: 3%;
+  & > *,
+  li {
+    border: solid $color-light 0.1rem;
+    border-radius: 1rem;
+    margin: 2%;
+    padding: 3%;
+  }
+
+  & li {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    list-style: none;
+    padding: 2.5%;
+    margin: 0;
+    margin-bottom: 2%;
+
+    & i {
+      padding: 0.2rem;
     }
 
-    & li {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        list-style: none;
-        padding: 2.5%;
-        margin: 0;
-        margin-bottom: 2%;
-
-        & i {
-            padding: 0.2rem;
-        }
-
-        & p {
-            max-width: 98%;
-        }
-
-        & .fa-trash-can,
-        .fa-pen-to-square {
-            font-size: 1rem;
-        }
+    & p {
+      max-width: 98%;
     }
 
-    & .task__info {
-        width: 95%;
-        padding: 2%;
+    & .fa-trash-can,
+    .fa-pen-to-square {
+      font-size: 1rem;
     }
+  }
+
+  & .task__info {
+    width: 95%;
+    padding: 2%;
+  }
 }
 
 p,
 label,
 ::placeholder {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 h2,
 h3,
 h1 {
-    color: $color-dark;
-    font-size: 1rem;
-    padding: 1% 0;
+  color: $color-dark;
+  font-size: 1rem;
+  padding: 1% 0;
 }
 
 i {
-    color: $color-dark;
-    padding: 2%;
-    font-size: 1.2rem;
+  color: $color-dark;
+  padding: 2%;
+  font-size: 1.2rem;
 }
 
 .popUp {
-    display: none;
-    position: absolute;
-    z-index: 1;
+  display: none;
+  position: absolute;
+  z-index: 1;
 }
 .displayBlock {
-    display: block;
+  display: block;
 }

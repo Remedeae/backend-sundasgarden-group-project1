@@ -5,6 +5,14 @@ AI usage:
 - Used AI (chatGPT) to check for typos
 - Used AI to ask ask questions when I get stuck on something that doesn't work.
     (Eg why my html code wasn't rendering -> hidden throw due to undefined variables)
+- Used chatGPT to help sort out what eslint/prettier filed and commands that goes where.
+    -> Didn't really help me figure out why the unused vars was still showing up as warnings.
+
+ESLint settings:
+- Prettier installed
+- no-unused-vars set to "off", since the unused vars and functions are desaturated anyway
+- endOfLine set to "auto", since windows and prettier don't agree on that line ending to use
+- trailingComma: "es5" - to only complain where it's valid/good practise
 
 Maya 15/9: Cat picture mounts twice, apparently that's because of that react is in development mode.
 
