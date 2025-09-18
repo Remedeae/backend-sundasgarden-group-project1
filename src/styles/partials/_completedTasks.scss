@@ -1,23 +1,22 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 .completedTasks {
-   grid-area: 2/3/3/4;
-   overflow: scroll;
+  grid-area: 2/3/3/4;
+  overflow: scroll;
 
-   & .fa-circle-check {
-      color: $color-green-mid;
-   }
+  & .fa-circle-check {
+    color: $color-green-mid;
+  }
 
-   & p {
-      text-decoration: line-through;
-   }
+  & p {
+    text-decoration: line-through;
+  }
 
-   & .task__info {
-      width: 95%;
-      padding: 2%;
-   }
-   & li {
-      background-color: $color-green-light;
-}
-
+  & .task__info {
+    width: 95%;
+    padding: 2%;
+  }
+  & li {
+    background-color: $color-green-light;
+  }
 }
