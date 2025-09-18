@@ -1,7 +1,7 @@
 export type tasksType = {
   task: string;
   description: string;
-  tags: string;
+  tags: string[];
 };
 
 export type PopUpClassType = {
@@ -31,3 +31,9 @@ export type PropsUlType = {
 export type styleType = {
   display: string;
 };
+
+export interface TaskLocationStorage {
+  location: string;
+  tasks: tasksType[];
+  completedTasks: tasksType[];
+}

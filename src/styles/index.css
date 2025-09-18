@@ -146,6 +146,19 @@ i {
 .displayBlock {
   display: block;
 }
+.displayBlock input, .displayBlock label {
+  padding: 2%;
+}
+.displayBlock button {
+  align-self: center;
+  width: 70%;
+  padding: 4%;
+  margin: 3%;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: black;
+  color: white;
+}
 
 .weather {
   grid-area: 1/1/2/2;
