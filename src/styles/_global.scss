@@ -15,9 +15,9 @@ body {
 
 .app {
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1.4fr 1fr;
+    grid-template: 1fr 2fr / 1fr 1.4fr 1fr;
     width: 97vw;
-    height: 94vh;
+    height: 97vh;
 
     &>*,
     li {

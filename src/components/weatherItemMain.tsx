@@ -41,6 +41,7 @@ function WeatherItemMain() {
         return directions[index];
     }
 
+
     const iconSnow : string = "fa-regular fa-snowflake";
     const iconOvercast : string = "fa-solid fa-cloud-sun";
     function weatherCodeToText(code: number): { weather: string; icon: string; } {
@@ -157,6 +158,7 @@ function WeatherItemMain() {
                 weather : "Thunderstorm with heavy hail",
                 icon : iconSnow,
             },
+
         };
 
         return weatherMap[code] ?? "Unknown weather code";
@@ -176,6 +178,7 @@ function WeatherItemMain() {
                     <p>{location}</p> {/* To dynamic */}
                     {weather && weather.current && (
                         <h1>
+
                             <i className={weatherCodeToText(weather.current.weather_code).icon} style={{ color: weatherObject.color }}></i>
                             {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>                            
                         </h1>
@@ -183,6 +186,7 @@ function WeatherItemMain() {
                     {weather && weather.current && (
                         <p>{weatherCodeToText(weather.current.weather_code).weather}</p> 
                     
+
                     )}
                 </div>
             </div>

@@ -51,14 +51,14 @@ function App() {
   const [taskEditStorage, setTaskEditStorage] = useState<tasksType>(emptyTask)
 
   const handleEditPopupActive = (index: number) => {
-    setEditIndexActive(editIndexActive === index ? null : index)
-
+    setEditIndexActive(editIndexActive === index ? null : index);
+    setTaskEditStorage(tasks[index]);
   }
 
-  const handleEditPopupComleted = (index: number) => {
-    setEditIndexCompleted(editIndexCompleted === index ? null : index)
-    //  console.log(completedTasks[index]);
-    //  console.log(completedTasks[index].task);
+  const handleEditActive = (index: number) => {
+    setTasks([...tasks.filter((_, i) => i < index), taskEditStorage, ...tasks.filter((_, i) => i > index)])
+    setTaskEditStorage(emptyTask);
+    setEditIndexActive(null)
   }
 
   const handleEditTaskChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof tasksType) => {
@@ -66,16 +66,18 @@ function App() {
       ...taskEditStorage,
       [field]: e.target.value
     });
-    //    console.log(completedTasks[index]);
+  }
+
+  const handleEditPopupComleted = (index: number) => {
+    setEditIndexCompleted(editIndexCompleted === index ? null : index)
+    setTaskEditStorage(completedTasks[index]);
   }
 
   const handleEditCompleted = (index: number) => {
-
     setCompletedTasks([...completedTasks.filter((_, i) => i < index), taskEditStorage, ...completedTasks.filter((_, i) => i > index)])
     setTaskEditStorage(emptyTask);
     setEditIndexCompleted(null)
     console.log(...completedTasks.filter((_, i) => i < index))
-    //console.log(completedTasks)
   }
 
 
@@ -95,12 +97,12 @@ function App() {
                 <div className={editIndexActive === index ? "popUp displayBlock" : "popUp"}>
                   <div className='editTask'>
                     <label htmlFor="editTask">Task:</label>
-                    <input type="text" id="newTask" placeholder='Enter task...'/*  value={newTask.task} onChange={(e => handleNewTaskChange(e, "task"))} */ />
+                    <input type="text" id="newTask" placeholder={editIndexActive === index ? `${tasks[index].task}` : "Enter titel..."} value={taskEditStorage.task} onChange={(e => handleEditTaskChange(e, "task"))} />
                     <label htmlFor="taskDescription">Description:</label>
-                    <input type="text" id="taskDescription" placeholder='Enter task description...' /* value={newTask.description} onChange={(e) => handleNewTaskChange(e, "description")} */ />
+                    <input type="text" id="taskDescription" placeholder={editIndexActive === index ? `${tasks[index].description}` : "Enter description..."} value={taskEditStorage.description} onChange={(e => handleEditTaskChange(e, "description"))} />
                     <label htmlFor="taskTag">Tags:</label>
                     <input type="checkbox" id='taskTag' />
-                    <button /* onClick={handleAddTask} */>Update task</button>
+                    <button onClick={() => handleEditActive(index)}>Update task</button>
                   </div>
                 </div>
                 <div>
