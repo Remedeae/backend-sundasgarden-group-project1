@@ -42,39 +42,121 @@ function WeatherItemMain() {
     }
 
     const iconSnow : string = "fa-regular fa-snowflake";
-    function weatherCodeToText(code: number): string {
-        const weatherMap: Record<number, string> = {
-/*             0: {
+    const iconOvercast : string = "fa-solid fa-cloud-sun";
+    function weatherCodeToText(code: number): { weather: string; icon: string; } {
+        const weatherMap: Record<number, { weather: string; icon: string; }> = {
+            0: {
                 weather : "Clear sky",
                 icon : iconSnow,
-            } */
-            1: "Mainly clear",
-            2: "Partly cloudy",
-            3: "Overcast",
-            45: "Fog",
-            48: "Depositing rime fog",
-            51: "Drizzle: Light",
-            53: "Drizzle: Moderate",
-            55: "Drizzle: Dense",
-            56: "Freezing drizzle: Light",
-            57: "Freezing drizzle: Dense",
-            61: "Rain: Slight",
-            63: "Rain: Moderate",
-            65: "Rain: Heavy",
-            66: "Freezing rain: Light",
-            67: "Freezing rain: Heavy",
-            71: "Snow fall: Slight",
-            73: "Snow fall: Moderate",
-            75: "Snow fall: Heavy",
-            77: "Snow grains",
-            80: "Rain showers: Slight",
-            81: "Rain showers: Moderate",
-            82: "Rain showers: Violent",
-            85: "Snow showers: Slight",
-            86: "Snow showers: Heavy",
-            95: "Thunderstorm: Slight or moderate",
-            96: "Thunderstorm with slight hail",
-            99: "Thunderstorm with heavy hail",
+            },
+            1: {
+                weather : "Mainly clear",
+                icon : iconSnow,
+            },   
+            2: {
+                weather : "Partly cloudy",
+                icon : iconSnow,
+            },
+            3: {
+                weather : "Overcast",
+                icon : iconOvercast,
+            },
+            45: {
+                weather : "Fog",
+                icon : iconSnow,
+            },
+            48: {
+                weather : "Depositing rime fog",
+                icon : iconSnow,
+            },
+            51: {
+                weather : "Drizzle: Light",
+                icon : iconSnow,
+            },
+            53: {
+                weather : "Drizzle: Moderate",
+                icon : iconSnow,
+            },
+            55: {
+                weather : "Drizzle: Dense",
+                icon : iconSnow,
+            },
+            56: {
+                weather : "Freezing drizzle: Light",
+                icon : iconSnow,
+            },
+            57: {
+                weather : "Freezing drizzle: Dense",
+                icon : iconSnow,
+            },
+            61: {
+                weather : "Rain: Slight",
+                icon : iconSnow,
+            },
+            63: {
+                weather : "Rain: Moderate",
+                icon : iconSnow,
+            },
+            65: {
+                weather : "Rain: Heavy",
+                icon : iconSnow,
+            },
+            66: {
+                weather : "Freezing rain: Light",
+                icon : iconSnow,
+            },
+            67: {
+                weather : "Freezing rain: Heavy",
+                icon : iconSnow,
+            },
+            71: {
+                weather : "Snow fall: Slight",
+                icon : iconSnow,
+            },
+            73: {
+                weather : "Snow fall: Moderate",
+                icon : iconSnow,
+            },
+            75: {
+                weather : "Snow fall: Heavy",
+                icon : iconSnow,
+            },
+            77: {
+                weather : "Snow grains",
+                icon : iconSnow,
+            },
+            80: {
+                weather : "Rain showers: Slight",
+                icon : iconSnow,
+            },
+            81: {
+                weather : "Rain showers: Moderate",
+                icon : iconSnow,
+            },
+            82: {
+                weather : "Rain showers: Violent",
+                icon : iconSnow,
+            },
+            85: {
+                weather : "Snow showers: Slight",
+                icon : iconSnow,
+            },
+            86: {
+                weather : "Snow showers: Heavy",
+                icon : iconSnow,
+            },
+            95: {
+                weather : "Thunderstorm: Slight or moderate",
+                icon : iconSnow,
+            },
+            96: {
+                weather : "Thunderstorm with slight hail",
+                icon : iconSnow,
+            },
+            99: {
+                weather : "Thunderstorm with heavy hail",
+                icon : iconSnow,
+            },
         };
 
         return weatherMap[code] ?? "Unknown weather code";
@@ -94,17 +176,12 @@ function WeatherItemMain() {
                     <p>{location}</p> {/* To dynamic */}
                     {weather && weather.current && (
                         <h1>
-                            <i className={weatherObject.icon} style={{ color: weatherObject.color }}></i>
-                            Weather update: {weatherCodeToText(weather.current.weather_code)}<br></br>
-                            Temperature: {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>
-                            Perceived temperature: {weather.current.apparent_temperature} {weather.current_units.apparent_temperature} <br></br>
-                            Wind speed: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m} <br></br>
-                            Wind direction: {weather.current.wind_direction_10m} {weather.current_units.wind_direction_10m} {degToCompass(weather.current.wind_direction_10m)}<br></br>
-                            The sun will rise at {getTimeFromISO(weather.daily.sunrise[0])} and go down at {getTimeFromISO(weather.daily.sunset[0])}
+                            <i className={weatherCodeToText(weather.current.weather_code).icon} style={{ color: weatherObject.color }}></i>
+                            {weather.current.temperature_2m} {weather.current_units.temperature_2m}<br></br>                            
                         </h1>
                     )}
                     {weather && weather.current && (
-                        <p>{weatherCodeToText(weather.current.weather_code)}</p> 
+                        <p>{weatherCodeToText(weather.current.weather_code).weather}</p> 
                     
                     )}
                 </div>
@@ -114,8 +191,18 @@ function WeatherItemMain() {
                     <WeatherItemDetail icon="fa-solid fa-temperature-full" color="#c76000ff" titel="Perceived temperature:" info={`${weather.current.apparent_temperature} ${weather.current_units.apparent_temperature}`} />
                 )}
                 {weather && weather.current && (
-                    <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Perceived temperature:" info={`${weather.current.apparent_temperature} ${weather.current_units.apparent_temperature}`} />
+                    <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Wind speed:" info={`${weather.current.wind_speed_10m} ${weather.current_units.wind_speed_10m}`} />
                 )}
+                {weather && weather.current && (
+                    <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Wind direction:" info={`${degToCompass(weather.current.wind_direction_10m)}`} />
+                )}
+                {weather && weather.current && (
+                    <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Sunrise:" info={`${getTimeFromISO(weather.daily.sunrise[0])}`} />
+                )}
+                {weather && weather.current && (
+                    <WeatherItemDetail icon="fa-solid fa-cloud-sun" color="#000" titel="Sunset:" info={`${getTimeFromISO(weather.daily.sunset[0])}`} />
+                )}
+
             </div>
         </div >
     )
