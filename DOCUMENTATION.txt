@@ -27,3 +27,14 @@ Using chatGPT.
 answer from chatGPT is saved in txt-file. Differences between code can be found in commit and push, afternoon 2025-09-14, 
 on branch weatherItem. 
 
+Ida-Sofie 2025-09-18
+Have been using chatGPT for several problems in the weather API: 
+    open meteo returns a number (?) as "weather_code". chatGPT informed me that that's open meteos own list over different 
+    types of weather and fixed a function to take in the weather_code and return the weather as a string. 
+
+    wind direction got returnd as the angle. chatGPT gave me function that takes in the angle and returns the wind direction 
+    as a string
+So far I've used chatGPT a lot and I'm only pleased with the result. But maybe it's because I write good questions. 
+chatGPT explains how the code works and what the problem was. But I do ask "why", "why not", "how" etc, instead of 
+just "fix for me". 
+
