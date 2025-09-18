@@ -4,9 +4,10 @@
   grid-area: 1/1/2/2;
 
   &__main {
-    min-height: 50%;
+    height: 45%;
     border-bottom: solid $color-light 0.1rem;
-    margin: 3%;
+    padding: 3%;
+    padding-top: 0;
 
     & > div {
       text-align: center;
@@ -20,15 +21,19 @@
   }
 
   &__details {
-    /*       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     min-height: 45%;
 
     &-item {
       display: flex;
       align-items: center;
+      width: 40%;
       padding: 3%;
+    }
+    & > :first-child {
+      width: 90%;
     }
 
     & i {
