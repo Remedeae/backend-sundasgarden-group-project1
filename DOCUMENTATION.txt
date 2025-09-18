@@ -17,6 +17,18 @@ Note that neither of these work on the editor, only when acctually running: "npm
 - endOfLine set to "auto", since windows and prettier don't agree on that line ending to use
 - trailingComma: "es5" - to only complain where it's valid/good practise
 
+
+
+
+
+
+
+
+
+
+
+
+
 Maya 15/9: Cat picture mounts twice, apparently that's because of that react is in development mode.
 
 Maya 12/9:

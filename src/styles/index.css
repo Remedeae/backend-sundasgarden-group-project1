@@ -151,12 +151,12 @@ i {
   grid-area: 1/1/2/2;
 }
 .weather__main {
-  height: 45%;
+  height: 55%;
   border-bottom: solid #e5e5e5 0.1rem;
   padding: 3%;
   padding-top: 0;
 }
-.weather__main > div {
+.weather__main > div, .weather__main input {
   text-align: center;
 }
 .weather__main h1 {
@@ -164,6 +164,10 @@ i {
 }
 .weather__main h1 i {
   font-size: 1.6rem;
+}
+.weather__main .time {
+  font-size: 1.3rem;
+  padding: 1%;
 }
 .weather__details {
   display: flex;
@@ -175,7 +179,7 @@ i {
   display: flex;
   align-items: center;
   width: 40%;
-  padding: 3%;
+  padding: 1%;
 }
 .weather__details > :first-child {
   width: 90%;

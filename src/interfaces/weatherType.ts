@@ -33,3 +33,8 @@ export type WeatherResponse = {
     sunset: string[];
   };
 };
+
+export type WeatherIconType = {
+  icon: string;
+  color: string;
+};

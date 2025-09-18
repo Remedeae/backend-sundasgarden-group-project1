@@ -114,7 +114,7 @@ function App() {
           {`Active Tasks (${tasks.length})`}
         </h3>
         <ul className="toDo__list">
-          {tasks.map((t, index) => (
+          {tasks.map((_, index) => (
             <li key={index}>
               <i
                 className="fa-regular fa-circle-check"
@@ -228,7 +228,7 @@ function App() {
           {`Completed Tasks (${completedTasks.length})`}
         </h3>
         <ul className="completedTasks__list">
-          {completedTasks.map((t, index) => (
+          {completedTasks.map((_, index) => (
             <li key={index}>
               <i className="fa-regular fa-circle-check"></i>
               <div className="task__info">
