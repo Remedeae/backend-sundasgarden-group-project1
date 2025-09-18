@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function WeatherItemMain() {
+
     /*const location is the address that goes in .. and returns lat and lon. Note that 
         A: you can use åäö, for instance "Malmö" is fine
         B: blankstep is ok, for instance "New York"*/
@@ -247,6 +248,7 @@ function WeatherItemMain() {
             </div>
         </div >
     )
+
 }
 
 export default WeatherItemMain;

@@ -1,47 +1,52 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 .weather {
-   grid-area: 1/1/2/2;
+  grid-area: 1/1/2/2;
 
-   &__main {
-      min-height: 50%;
-      border-bottom: solid $color-light 0.1rem;
-      margin: 3%;
+  &__main {
+    height: 45%;
+    border-bottom: solid $color-light 0.1rem;
+    padding: 3%;
+    padding-top: 0;
 
-      &>div {
-         text-align: center;
-      }
-      & h1 {
-         font-size: 2rem;
-         & i {
-            font-size: 1.6rem;
-         }
-      }
-   }
-
-   &__details {
-/*       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start; */
-      min-height: 45%;
-
-      &-item {
-         display: flex;
-         align-items: center;
-         padding: 3%;
-      }
-
+    & > div {
+      text-align: center;
+    }
+    & h1 {
+      font-size: 2rem;
       & i {
-         padding: 3%;
+        font-size: 1.6rem;
       }
+    }
+  }
 
-      & p {
-         font-size: 0.8rem;
-      }
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    min-height: 45%;
 
-      & h6 {
-         font-size: 1rem;
-         color: $color-dark;
-      }
-   }
+    &-item {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      padding: 3%;
+    }
+    & > :first-child {
+      width: 90%;
+    }
+
+    & i {
+      padding: 3%;
+    }
+
+    & p {
+      font-size: 0.8rem;
+    }
+
+    & h6 {
+      font-size: 1rem;
+      color: $color-dark;
+    }
+  }
 }

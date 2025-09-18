@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -7,7 +9,8 @@
   padding: 0;
 }
 
-ul[role=list], ol[role=list] {
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
@@ -20,7 +23,11 @@ a:not([class]) {
           text-decoration-skip-ink: auto;
 }
 
-img, picture, svg, video, canvas {
+img,
+picture,
+svg,
+video,
+canvas {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
@@ -29,7 +36,10 @@ img, picture, svg, video, canvas {
   background-size: cover;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -37,7 +47,9 @@ input, button, textarea, select {
   html:focus-within {
     scroll-behavior: auto;
   }
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -45,7 +57,8 @@ input, button, textarea, select {
     transition: none;
   }
 }
-body, html {
+body,
+html {
   height: 100%;
   scroll-behavior: smooth;
 }
@@ -71,7 +84,7 @@ body {
 }
 .app > *,
 .app li {
-  border: solid #E5E5E5 0.1rem;
+  border: solid #e5e5e5 0.1rem;
   border-radius: 1rem;
   margin: 2%;
   padding: 3%;
@@ -113,13 +126,13 @@ label,
 h2,
 h3,
 h1 {
-  color: #0A0A0A;
+  color: #0a0a0a;
   font-size: 1rem;
   padding: 1% 0;
 }
 
 i {
-  color: #0A0A0A;
+  color: #0a0a0a;
   padding: 2%;
   font-size: 1.2rem;
 }
@@ -138,9 +151,10 @@ i {
   grid-area: 1/1/2/2;
 }
 .weather__main {
-  min-height: 50%;
-  border-bottom: solid #E5E5E5 0.1rem;
-  margin: 3%;
+  height: 45%;
+  border-bottom: solid #e5e5e5 0.1rem;
+  padding: 3%;
+  padding-top: 0;
 }
 .weather__main > div {
   text-align: center;
@@ -152,15 +166,19 @@ i {
   font-size: 1.6rem;
 }
 .weather__details {
-  /*       display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   min-height: 45%;
 }
 .weather__details-item {
   display: flex;
   align-items: center;
+  width: 40%;
   padding: 3%;
+}
+.weather__details > :first-child {
+  width: 90%;
 }
 .weather__details i {
   padding: 3%;
@@ -170,7 +188,7 @@ i {
 }
 .weather__details h6 {
   font-size: 1rem;
-  color: #0A0A0A;
+  color: #0a0a0a;
 }
 
 .catPic {
@@ -193,7 +211,7 @@ i {
      object-fit: cover;
 }
 .catPic .fa-heart {
-  color: #F6339A;
+  color: #f6339a;
 }
 .catPic h2 {
   align-self: flex-start;
@@ -212,7 +230,7 @@ i {
   overflow: scroll;
 }
 .toDo .fa-clock {
-  color: #2B7FFF;
+  color: #2b7fff;
 }
 .toDo li {
   display: flex;
@@ -220,9 +238,9 @@ i {
   justify-content: start;
 }
 .toDo .fa-circle-check {
-  color: #00A63E;
+  color: #00a63e;
   padding: 0.3rem;
-  border: solid 0.1rem #E5E5E5;
+  border: solid 0.1rem #e5e5e5;
   border-radius: 0.3rem;
 }
 .toDo .task__action {
@@ -255,16 +273,16 @@ i {
   min-height: 90%;
 }
 .addTask label {
-  color: #0A0A0A;
+  color: #0a0a0a;
 }
 .addTask input {
   padding: 1%;
   border-radius: 0.3rem;
   border: solid #717182 0.1rem;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 .addTask i {
-  color: #00C950;
+  color: #00c950;
 }
 .addTask .tags {
   display: flex;
@@ -292,19 +310,19 @@ i {
 }
 .addTask .tags .low {
   background-color: #e6ffec;
-  border-color: #00A63E;
+  border-color: #00a63e;
 }
 .addTask .tags .low label {
-  color: #00A63E;
+  color: #00a63e;
 }
 .addTask button {
-  align-self: center;
+  margin: auto;
   padding: 1%;
   width: 60%;
   border: none;
   border-radius: 1rem;
   color: white;
-  background-color: #0A0A0A;
+  background-color: #0a0a0a;
 }
 .addTask button i {
   color: white;
@@ -315,7 +333,7 @@ i {
   overflow: scroll;
 }
 .completedTasks .fa-circle-check {
-  color: #00C950;
+  color: #00c950;
 }
 .completedTasks p {
   text-decoration: line-through;

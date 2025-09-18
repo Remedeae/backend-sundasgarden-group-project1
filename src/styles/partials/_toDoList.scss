@@ -1,34 +1,33 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 .toDo {
-    grid-area: 1/2/3/3;
-    overflow: scroll;
+  grid-area: 1/2/3/3;
+  overflow: scroll;
 
-    & .fa-clock {
-        color: $color-blue;
+  & .fa-clock {
+    color: $color-blue;
+  }
+
+  & li {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  & .fa-circle-check {
+    color: $color-green-dark;
+    padding: 0.3rem;
+    border: solid 0.1rem $color-light;
+    border-radius: 0.3rem;
+  }
+
+  & .task__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    & i {
+      padding: 15% 0 15% 15%;
     }
-
-    & li {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-    }
-    & .fa-circle-check {
-        color: $color-green-dark;
-        padding: 0.3rem;
-        border: solid 0.1rem $color-light;
-        border-radius: 0.3rem;
-    }
-
-    & .task__action {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-        & i {
-            padding: 15% 0 15% 15%;
-        }
-    }
-
+  }
 }
