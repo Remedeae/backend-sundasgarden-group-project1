@@ -1,33 +1,68 @@
 import type { WeatherResponse } from "../interfaces/weatherType";
+import type { GeoCodingResponse } from "../interfaces/geoCoding";
 import WeatherItemDetail from "./weatherItemDetail";
 //import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
 function WeatherItemMain() {
-    const location: string = "Helsinborg"   //dynamic?    
+    /*const location is the address that goes in .. and returns lat and lon. Note that 
+        A: you can use åäö, for instance "Malmö" is fine
+        B: blankstep is ok, for instance "New York"*/
+    const location: string = "Lima";   
     let weatherObject = {   //idea with this is to make an object to display depending on weather gathered from API
         weather: "Heavy Snow",
         icon: "fa-regular fa-snowflake",
         color: "#9de6f0ff",
     }
 
-    const [weather, setWeather] = useState<WeatherResponse | null>(null);
-
-    const fetchData = async () => {
-
-        try {
-            const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=56.0467&longitude=12.6944&daily=sunrise,sunset&current=apparent_temperature,temperature_2m,wind_speed_10m,wind_direction_10m,weather_code&timezone=Europe%2FBerlin&forecast_days=1&wind_speed_unit=ms");
-            const data: WeatherResponse = await response.json();
-            setWeather(data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    };
+    const apiKeyGeocoding = "68cc38899a427916801981cpx7a12d7";
+    const [geoData, setGeoData] = useState<GeoCodingResponse | null>(null); 
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetchData();
+    fetch(`https://geocode.maps.co/search?q=${location}&api_key=${apiKeyGeocoding}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json() as Promise<GeoCodingResponse[]>; // cast response type
+        })
+        .then((json) => {
+        if (json.length > 0) {
+          setGeoData(json[0]); // use the first match
+        } else {
+          setError("No location found");
+        }
+        })
+        .catch((err: unknown) => {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unknown error occurred");
+        }
+         });
     }, []);
+    
+    const [weather, setWeather] = useState<WeatherResponse | null>(null);
+
+    // Step 2: Fetch weather once we have coordinates
+    useEffect(() => {
+        if (!geoData) return;
+
+        const fetchData = async () => {
+
+            try {
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${geoData?.lat}&longitude=${geoData?.lon}&daily=sunrise,sunset&current=apparent_temperature,temperature_2m,wind_speed_10m,wind_direction_10m,weather_code&timezone=Europe%2FBerlin&forecast_days=1&wind_speed_unit=ms`);
+                const data: WeatherResponse = await response.json();
+                setWeather(data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                setError("Failed to fetch weather"); //do we need this line?
+            }
+        };
+        fetchData();
+        }, [geoData]);
 
     //via help from chatGPT
     function degToCompass(WindDirection: number): string {
