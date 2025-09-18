@@ -270,7 +270,9 @@ function WeatherItemMain() {
         </h2>
         <div>
           {weather && weather.current && (
-            <p className="time">{`${getTimeFromISO(weather.current.time)}`}</p>
+            <p className="time">
+              Local time: {`${getTimeFromISO(weather.current.time)}`}
+            </p>
           )}
           <div>
             <input
