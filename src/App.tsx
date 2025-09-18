@@ -201,7 +201,7 @@ function App() {
             value={newTask.description}
             onChange={(e) => handleNewTaskChange(e, "description")}
           />
-          <div className="tags">
+          {/*           <div className="tags">
             <div className="tags__item high">
               <input type="checkbox" id="taskTag" />
               <label htmlFor="taskTag">High</label>
@@ -214,7 +214,7 @@ function App() {
               <input type="checkbox" id="taskTag" />
               <label htmlFor="taskTag">Low</label>
             </div>
-          </div>
+          </div> */}
           <button onClick={handleAddTask}>
             <i className="fa-solid fa-plus"></i>Add new task
           </button>

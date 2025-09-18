@@ -9,8 +9,8 @@
   padding: 0;
 }
 
-ul[role="list"],
-ol[role="list"] {
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
@@ -20,7 +20,7 @@ html:focus-within {
 
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
-  text-decoration-skip-ink: auto;
+          text-decoration-skip-ink: auto;
 }
 
 img,
@@ -151,9 +151,10 @@ i {
   grid-area: 1/1/2/2;
 }
 .weather__main {
-  min-height: 50%;
+  height: 45%;
   border-bottom: solid #e5e5e5 0.1rem;
-  margin: 3%;
+  padding: 3%;
+  padding-top: 0;
 }
 .weather__main > div {
   text-align: center;
@@ -165,15 +166,19 @@ i {
   font-size: 1.6rem;
 }
 .weather__details {
-  /*       display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   min-height: 45%;
 }
 .weather__details-item {
   display: flex;
   align-items: center;
+  width: 40%;
   padding: 3%;
+}
+.weather__details > :first-child {
+  width: 90%;
 }
 .weather__details i {
   padding: 3%;
@@ -203,7 +208,7 @@ i {
   border-radius: 0.7rem;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .catPic .fa-heart {
   color: #f6339a;
@@ -311,7 +316,7 @@ i {
   color: #00a63e;
 }
 .addTask button {
-  align-self: center;
+  margin: auto;
   padding: 1%;
   width: 60%;
   border: none;
@@ -347,4 +352,4 @@ i {
   width: 15vw;
   padding: 4%;
   background-color: #e6ffec;
-} /*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
