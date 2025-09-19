@@ -13,7 +13,10 @@ function WeatherItemMain() {
         A: you can use åäö, for instance "Malmö" is fine
         B: blankstep is ok, for instance "New York"*/
   const [location, setLocation] = useState<string>(() => {
-    const saved = localStorage.getItem("location");
+    const saved: string | null | undefined = localStorage.getItem("location");
+    if (saved === "") {
+      return "Helsingborg";
+    }
     return saved ?? "Helsingborg";
   });
   useEffect(() => {

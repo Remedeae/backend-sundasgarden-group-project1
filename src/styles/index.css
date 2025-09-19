@@ -198,7 +198,7 @@ i {
   width: 90%;
 }
 .weather__details i {
-  padding: 3%;
+  padding: 0.3rem;
 }
 .weather__details p {
   font-size: 0.8rem;
